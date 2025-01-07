@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -7,6 +7,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+// Blog service
+import { BlogService } from '../../service/blog.service';
+import { BlogListComponent } from '../blog-list/blog-list.component';
+import { Blog } from '../../model/Blog';
 
 @Component({
   selector: 'app-create-blog',
@@ -16,6 +21,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatCardModule,
     MatChipsModule,
     MatIconModule,
+    MatCheckboxModule,
     CommonModule,
     ReactiveFormsModule,
   ],
@@ -23,7 +29,11 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrl: './create-blog.component.scss',
 })
 export class CreateBlogComponent {
+  
+  blogService: BlogService = inject(BlogService);
+
   blogForm: FormGroup;
+  isVisible: boolean = true;
 
   constructor(private fb: FormBuilder) {
     // Initialize the form
@@ -43,6 +53,15 @@ export class CreateBlogComponent {
       console.log('New Blog:', this.blogForm.value);
 
       // Simulate saving the blog
+      const newBlog: Blog = {
+        id: Date.now(),
+        title: this.blogForm.value.title,
+        content: this.blogForm.value.content,
+        image: this.blogForm.value.image || '',
+        visible: this.blogForm.value.visible || false,
+      };
+
+      this.blogService.createBlog(newBlog);
       alert('Blog created successfully!');
       this.blogForm.reset();
     }

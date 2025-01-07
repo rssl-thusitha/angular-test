@@ -97,4 +97,8 @@ export class BlogService {
   getBlogById(blogId: number): Blog | undefined {
     return this.blogList.find((blog) => blog.id === blogId);
   }
+
+  createBlog(blog: Blog): void {
+    this.blogList.push(blog);
+  } 
 }

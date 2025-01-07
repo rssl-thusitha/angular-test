@@ -1,46 +1,70 @@
 <div class="create-blog-container">
-    <mat-card class="create-blog-card">
-      <mat-card-header>
-        <mat-card-title>Create Blog Post</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <form [formGroup]="blogForm" (ngSubmit)="onSubmit()">
-          <!-- Blog Title -->
-          <mat-form-field appearance="fill" class="full-width">
-            <mat-label>Title</mat-label>
-            <input matInput placeholder="Enter blog title" formControlName="title" />
-            <mat-error *ngIf="blogForm.get('title')?.hasError('required')">Title is required</mat-error>
-            <mat-error *ngIf="blogForm.get('title')?.hasError('minlength')">
-              Title must be at least 3 characters
-            </mat-error>
-          </mat-form-field>
-  
-          <!-- Blog Content -->
-          <mat-form-field appearance="fill" class="full-width">
-            <mat-label>Content</mat-label>
-            <textarea matInput placeholder="Enter blog content" formControlName="content" rows="6"></textarea>
-            <mat-error *ngIf="blogForm.get('content')?.hasError('required')">Content is required</mat-error>
-            <mat-error *ngIf="blogForm.get('content')?.hasError('minlength')">
-              Content must be at least 10 characters
-            </mat-error>
-          </mat-form-field>
-  
-          <!-- Blog Image -->
-          <mat-form-field appearance="fill" class="full-width">
-            <mat-label>Image URL</mat-label>
-            <input matInput placeholder="Enter image URL" formControlName="image" />
-            <mat-error *ngIf="blogForm.get('image')?.hasError('required')">Image URL is required</mat-error>
-          </mat-form-field>
-  
-          <!-- Visibility Toggle -->
-          <mat-slide-toggle formControlName="visible">Visible</mat-slide-toggle>
-  
-          <!-- Submit Button -->
-          <button mat-raised-button color="primary" class="submit-button" type="submit" [disabled]="blogForm.invalid">
-            Create Blog
-          </button>
-        </form>
-      </mat-card-content>
-    </mat-card>
-  </div>
-  
+  <mat-card class="create-blog-card">
+    <mat-card-header>
+      <mat-card-title>Create Blog Post</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="blogForm" (ngSubmit)="onSubmit()">
+        <!-- Blog Title -->
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Title</mat-label>
+          <input
+            matInput
+            placeholder="Enter blog title"
+            formControlName="title"
+          />
+          <mat-error *ngIf="blogForm.get('title')?.hasError('required')"
+            >Title is required</mat-error
+          >
+          <mat-error *ngIf="blogForm.get('title')?.hasError('minlength')">
+            Title must be at least 3 characters
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Blog Content -->
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Content</mat-label>
+          <textarea
+            matInput
+            placeholder="Enter blog content"
+            formControlName="content"
+            rows="6"
+          ></textarea>
+          <mat-error *ngIf="blogForm.get('content')?.hasError('required')"
+            >Content is required</mat-error
+          >
+          <mat-error *ngIf="blogForm.get('content')?.hasError('minlength')">
+            Content must be at least 10 characters
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Blog Image -->
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Image URL</mat-label>
+          <input
+            matInput
+            placeholder="Enter image URL"
+            formControlName="image"
+          />
+          <mat-error *ngIf="blogForm.get('image')?.hasError('required')"
+            >Image URL is required</mat-error
+          >
+        </mat-form-field>
+
+        <!-- Visibility -->
+        <mat-checkbox matInput formControlName="visible">Visible</mat-checkbox>
+
+        <!-- Submit Button -->
+        <button
+          mat-raised-button
+          color="primary"
+          class="submit-button"
+          type="submit"
+          [disabled]="blogForm.invalid"
+        >
+          Create Blog
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
