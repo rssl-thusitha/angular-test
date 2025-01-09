@@ -8,7 +8,9 @@
   </button>
   <span id="brand-name" routerLink="/"> {{ title }} </span>
   <span class="example-spacer"></span>
+
   <button
+    *ngIf="!isLogged"
     mat-button
     class="mat-raised-button"
     color="primary"
@@ -18,6 +20,9 @@
   >
     Login
   </button>
+
+  <!-- Show text if isButtonVisible is false -->
+  <span class="username" *ngIf="isLogged">Hi, {{loggedUser?.username}}</span>
 </mat-toolbar>
 
 <!-- src/app/app.component.html -->

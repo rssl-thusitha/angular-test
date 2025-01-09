@@ -10,7 +10,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 // Blog service
 import { BlogService } from '../../service/blog.service';
-import { BlogListComponent } from '../blog-list/blog-list.component';
 import { Blog } from '../../model/Blog';
 
 @Component({
