@@ -22,7 +22,9 @@
   </button>
 
   <!-- Show text if isButtonVisible is false -->
-  <span class="username" *ngIf="isLogged">Hi, {{loggedUser?.username}}</span>
+  <div class="username" *ngIf="isLogged">
+    <app-user-menu *ngIf="loggedUser" [loggedUser]="loggedUser"></app-user-menu>
+  </div>
 </mat-toolbar>
 
 <!-- src/app/app.component.html -->

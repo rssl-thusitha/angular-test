@@ -42,4 +42,12 @@ export class UserService {
     }
     return undefined;
   }
+
+  logout(): void {
+    this.loggedUserSubject.next(undefined);
+  }
+
+  isLoggedIn(): boolean {
+    return this.loggedUserSubject.getValue() !== undefined;
+  }
 }

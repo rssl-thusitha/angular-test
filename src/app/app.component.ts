@@ -15,6 +15,7 @@ import { MatCardModule } from '@angular/material/card';
 // User service
 import { UserService } from './service/user.service';
 import { User } from './model/User';
+import { UserMenuComponent } from "./components/user-menu/user-menu.component";
 @Component({
   selector: 'app-root',
   imports: [
@@ -33,7 +34,8 @@ import { User } from './model/User';
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
-  ],
+    UserMenuComponent
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
@@ -41,7 +43,7 @@ export class AppComponent {
   title = 'Jetmash';
 
   userService: UserService = inject(UserService);
-  loggedUser: User | undefined;
+  loggedUser: User | undefined = undefined;
   isLogged: boolean = false;
 
   constructor() {
