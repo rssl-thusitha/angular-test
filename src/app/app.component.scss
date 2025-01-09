@@ -1,0 +1,39 @@
+@use "@angular/material" as mat;
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.navbar {
+  border-bottom: 1px solid black;
+  background-color: #232323;
+}
+
+.sidebar {
+  //   background-color: aquamarine;
+  height: 100%;
+}
+
+.sidebar mat-sidenav{
+  background-color: antiquewhite;
+}
+
+mat-toolbar{
+  font-size: 18px;
+}
+
+.mat-mdc-list-item {
+  color: beige !important;
+}
+
+.content {
+  background-color: white;
+}
+
+#brand-name{
+  color: chocolate;
+}
+
+.username{
+  color: chocolate;
+}
